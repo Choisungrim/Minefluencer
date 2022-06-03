@@ -21,7 +21,11 @@ public class YtubeServiceimpl implements YtubeService{
 	}
 	@Override
 	public List<YtubeVO> selectList() {
-		// TODO Auto-generated method stub
 		return mapper.selectList();
+	}
+	
+	@Override
+	public List<YtubeVO> imgOne(String string) {
+		return mapper.imgOne(string);
 	}
 }

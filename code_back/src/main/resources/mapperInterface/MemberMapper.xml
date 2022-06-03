@@ -8,19 +8,18 @@
 		where id =#{id}
   	</select>
   	
-  	<select id="imgOne" resultType="vo.MemberVO">
-	  		select substr(a.subscribe,1,3)as subscribe, a.seq, a.name, a.introduce ,a.image ,b.job 
-			from ytube a join address b 
-			on a.name = b.name
-			where b.job like (
-			select concat(substr(#{interest},1,2),"%")as interest 
-			from member 
-			where interest is not null)
-			order by subscribe desc
+  	<insert id="insert">
+  		insert into member 
+  		values(#{id},#{password},#{email},#{nick_name},#{birth},#{gender},#{color},#{interest})
+  	</insert>
+  	
+  	<select id="getAll" resultType = "vo.MemberVO" parameterType="hashmap">
+  		select *
+  		from member
+  		where email = #{email} 
+  		and birth = #{birth} 
+  		and color = #{color}
   	</select>
   	
-  	<insert id="insert">
-  		insert into member values(#{id},#{password},#{email},#{nick_name},#{birth},#{gender},#{color},#{interest})
-  	</insert>
   	
   </mapper>

@@ -1,0 +1,166 @@
+@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css');
+:root {
+	--vivid-sky-blue: #3cf;
+	--manatee: #9c9fab;
+	--cultured: #f4f4f6;
+	--eerie-black: #1c1d21;
+	--light-gray: #d3d4d9;
+	--black-coral: #676b79;
+	--han-purple: #33f;
+	--ghost-white: #fbfbff;
+	--lavender-web: #e7e7ff;
+	--white: #fff;
+	--rusty-red: #de3c4b;
+}
+
+.container {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-color: var(--ghost-white);
+	height: 100vh;
+}
+
+.container > .login {
+	width: 70rem;
+}
+
+.container > .login > h1 {
+	display: flex;
+	justify-content: center;
+	margin-bottom: 6rem;
+}
+
+.container > .login > h1 > img {
+	width: 13.4rem;
+	height: 6.9rem;
+}
+
+.container > .login > .login_box {
+	box-shadow: 0 1rem 3.5rem 0 rgba(28, 29, 33, 0.05);
+	height: 60rem;
+	border-radius: 10px;
+}
+
+.container > .login > .login_box > div {
+	padding: 5rem 0 0;
+	height: 10.8rem;
+	border-bottom: 0.1rem solid var(--light-gray);
+}
+
+.container > .login > .login_box > div > h1 {
+	margin: 0 10rem 1.9rem;
+	font-size: 3.2rem;
+	font-weight: bold;
+	color: var(--han-purple);
+}
+
+.container > .login > .login_box > form {
+	height: 54.2rem;
+}
+
+.container > .login > .login_box > form > div {
+	width: 50rem;
+	height: 10rem;
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	margin: 0 auto;
+}
+
+.container > .login > .login_box > form > .id_box {
+	margin-top: 3rem;
+}
+
+.container > .login > .login_box > form > .pw_box {
+	margin-top: 2rem;
+}
+
+form > div > label {
+	font-size: 2rem;
+	font-weight: bold;
+	margin-bottom: 1.2rem;
+}
+
+form > div > label > span {
+	color: var(--black-coral);
+}
+
+form > div > input {
+	padding: 1.5rem;
+	outline: none;
+	border: none;
+	background-color: var(--white);
+	border-radius: 1rem;
+}
+
+form > div > input::placeholder {
+	font-size: 1.5rem;
+	color: var(--light-gray);
+}
+form > div > input:focus {
+	outline: solid 0.1rem var(--han-purple);
+	transition: all 0.2s ease;
+	color: var(--han-purple);
+}
+
+form > div > p {
+	margin-top: 0.8rem;
+	color: var(--rusty-red);
+	font-size: 1.2rem;
+}
+
+.container > .login > .login_box > form > div.find {
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-end;
+	margin-top: 3rem;
+	height: 1.4rem;
+}
+
+form > div.find > span {
+	font-size: 1.4rem;
+	font-weight: bold;
+}
+
+form > div.find > span > a {
+	color: var(--black-coral);
+}
+
+form > div.find > span:nth-of-type(2) {
+	width: 3rem;
+	height: 2.2rem;
+	text-align: center;
+	color: var(--black-coral);
+}
+
+.container > .login > .login_box > form > .submit_btn {
+	margin-top: 3rem;
+}
+
+form > .submit_btn > button {
+	height: 5.8rem;
+	border: none;
+	border-radius: 1rem;
+	background-color: var(--han-purple);
+	font-size: 2.2rem;
+	font-weight: bold;
+	color: var(--white);
+	cursor: pointer;
+}
+
+.container > .login > .login_box > form > .join {
+	text-align: center;
+}
+
+form > .join > h5 {
+	font-size: 1.4rem;
+	font-weight: normal;
+	color: var(--black-coral);
+}
+
+form > .join > h5 > a {
+	margin-left: 0.5rem;
+	color: var(--han-purple);
+	font-weight: bold;
+}

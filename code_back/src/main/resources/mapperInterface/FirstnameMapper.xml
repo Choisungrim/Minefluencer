@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  <mapper namespace="mapperInterface.FirstnameMapper">
+  
+  <select id="givenick" resultType="vo.FirstnameVO">
+  	select * 
+  	from nickis
+  	where count = 0
+  </select>
+  
+  <update id="countUpdate">
+  	update nickis 
+  	set count = count +1 
+  	where nick_name = #{nick_name}
+  </update>
+  
+  </mapper>

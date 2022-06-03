@@ -5,7 +5,7 @@
 	<head>
 		<meta charset="UTF-8" />
 		<link rel="stylesheet" href="resources/myLib/reset.css" />
-		<link rel="stylesheet" href="resources/myLib/login.css" />
+		<link rel="stylesheet" href="resources/myLib/login/login.css" />
 		<title>로그인</title>
 	</head>
 	<body>
@@ -28,9 +28,9 @@
 							<p id="id_errer"></p>
 						</div>
 						<div class="find">
-							<span><a href="all">비밀번호찾기</a></span>
+							<span><a href="id_pw_getf">비밀번호찾기</a></span>
 							<span>|</span>
-							<span><a href="all">아이디찾기</a></span>
+							<span><a href="id_pw_getf">아이디찾기</a></span>
 						</div>
 						<div class="submit_btn">
 							<button>로그인</button>

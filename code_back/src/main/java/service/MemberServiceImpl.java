@@ -1,5 +1,6 @@
 package service;
 
+import java.util.HashMap;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,6 +28,10 @@ public class MemberServiceImpl implements MemberService{
 	@Override
 	public int insert(MemberVO vo) {
 		return mapper.insert(vo);
+	}
+	@Override
+	public MemberVO getAll(HashMap<String,Object> map) {
+		return mapper.getAll(map);
 	}
 
 }

@@ -12,9 +12,9 @@ import org.springframework.web.servlet.ModelAndView;
 import service.YtubeService;
 import vo.YtubeVO;
 
-/*
+/**
  * 2022 - 05 - 26
- * Last update 최성림
+ * @author ChoiSungRim
  * ytube insert DataBase
  * */
 @Controller
@@ -33,7 +33,9 @@ public class ytubeController {
 	@ResponseBody
 	public ModelAndView input1 (HttpServletRequest request,ModelAndView mv,YtubeVO vo){
 		
-		if(vo!=null) Service.insert(vo);
+		if(vo!=null) {
+			Service.insert(vo);
+		}
 		return mv;
 	}
 	

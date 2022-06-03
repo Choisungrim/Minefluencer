@@ -6,42 +6,13 @@ public class MemberVO {
 	private String password;
 	private String email;
 	private String nick_name;
-	private String birth;
+	private int birth;
 	private String gender;
 	private String color;
 	private String interest;
 	
-	private String introduce;
-	private String image;
-	private String subscribe;
-	private String name;
 	
 	
-	
-	public String getImage() {
-		return image;
-	}
-	public void setImage(String image) {
-		this.image = image;
-	}
-	public String getSubscribe() {
-		return subscribe;
-	}
-	public void setSubscribe(String subscribe) {
-		this.subscribe = subscribe;
-	}
-	public String getName() {
-		return name;
-	}
-	public void setName(String name) {
-		this.name = name;
-	}
-	public String getIntroduce() {
-		return introduce;
-	}
-	public void setIntroduce(String introduce) {
-		this.introduce = introduce;
-	}
 	public String getId() {
 		return id;
 	}
@@ -66,10 +37,10 @@ public class MemberVO {
 	public void setNick_name(String nick_name) {
 		this.nick_name = nick_name;
 	}
-	public String getBirth() {
+	public int getBirth() {
 		return birth;
 	}
-	public void setBirth(String birth) {
+	public void setBirth(int birth) {
 		this.birth = birth;
 	}
 	public String getGender() {
@@ -93,11 +64,6 @@ public class MemberVO {
 	@Override
 	public String toString() {
 		return "MemberVO [id=" + id + ", password=" + password + ", email=" + email + ", nick_name=" + nick_name
-				+ ", birth=" + birth + ", gender=" + gender + ", color=" + color + ", interest=" + interest
-				+ ", introduce=" + introduce + ", image=" + image + ", subscribe=" + subscribe + ", name=" + name + "]";
+				+ ", birth=" + birth + ", gender=" + gender + ", color=" + color + ", interest=" + interest + "]";
 	}
-	
-	
-	
-	
 }

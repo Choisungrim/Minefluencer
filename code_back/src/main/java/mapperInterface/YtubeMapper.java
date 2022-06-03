@@ -9,4 +9,5 @@ public interface YtubeMapper {
 
 	int insert (YtubeVO vo);
 	List<YtubeVO> selectList();
+	List<YtubeVO> imgOne (String string);
 }

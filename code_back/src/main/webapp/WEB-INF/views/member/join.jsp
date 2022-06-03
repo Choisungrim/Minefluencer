@@ -19,15 +19,24 @@
 				<form action="join" method="post">
 					<div class="input_box">
 						<p>아이디</p>
-						<input type="text" name="id" id="id" placeholder="이메일을 입력해주세요." />
+						<input type="text" name="id" id="id" placeholder="이메일을 입력해주세요." autocomplete="off" />
+						<div class="check_text">
+							<span id="id_check"></span>
+						</div>
 					</div>
 					<div class="input_box">
 						<p>비밀번호</p>
-						<input type="password" name="password" id="password" placeholder="비밀번호를 입력해주세요." />
+						<input type="password" name="password" id="password" placeholder="비밀번호를 입력해주세요." autocomplete="off" />
+						<div class="check_text">
+							<span id="pw_check"></span>
+						</div>
 					</div>
 					<div class="input_box">
 						<p>비밀번호 확인</p>
-						<input type="password" name="password_re" id="password_re" placeholder="비밀번호를 다시 입력해주세요." />
+						<input type="password" name="password_re" id="password_re" placeholder="비밀번호를 다시 입력해주세요." autocomplete="off" readonly />
+						<div class="check_text">
+							<span id="pw_re_check"></span>
+						</div>
 					</div>
 					<div class="input_box">
 						<p>이메일</p>
@@ -41,24 +50,41 @@
 								<option value="kakao">kakao.com</option>
 							</select>
 						</div>
+						<div class="check_text">
+							<span id="email_check"></span>
+						</div>
 					</div>
 					<div class="input_box">
 						<p>닉네임</p>
-						<input type="text" name="nick_name" id="nick_name" value = "${apple}" readonly></input>
+						<input type="text" name="nick_name" id="nick_name" value ="${apple}" readonly />
+						<div class="check_text">
+							<span id="name_check">자동으로 부여 된 닉네임 입니다.</span>
+						</div>
 					</div>
 					<div class="input_box">
 						<p>생년월일</p>
-						<input type="text" name="birthday" id="birthday" placeholder="주민등록번호 앞 6자리를 입력하세요." />
+						<input
+							type="text"
+							oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"
+							name="birth"
+							id="birth"
+							placeholder="주민등록번호 앞 6자리를 입력하세요."
+							autocomplete="off"
+							maxlength="6"
+						/>
+						<div class="check_text">
+							<span id="birthd_check"></span>
+						</div>
 					</div>
 					<div class="input_box">
 						<p>성별</p>
 						<div class="male_box">
 							<div>
-								<input type="radio" name="male" id="man" />
+								<input type="radio" name="gender" id="man" value = "man"/>
 								<p><label for="man">남</label></p>
 							</div>
 							<div>
-								<input type="radio" name="male" id="women" />
+								<input type="radio" name="gender" id="women" value = "women"/>
 								<p><label for="women">여</label></p>
 							</div>
 						</div>
@@ -70,10 +96,15 @@
 							<option value="green">초록색</option>
 							<option value="blue">파랑색</option>
 						</select>
+						<div class="check_text">
+							<span>아이디 | 비밀번호 찾기에 도움이 됩니다.</span>
+						</div>
 					</div>
-					<button>회원가입</button>
+					<button id="submit_btn">회원가입</button>
 				</form>
 			</div>
 		</div>
+		<script src="resources/myLib/jquery-3.2.1.min.js"></script>
+		<script src="resources/myLib/join/form.js"></script>
 	</body>
 </html>

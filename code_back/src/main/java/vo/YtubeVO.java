@@ -13,8 +13,6 @@ public class YtubeVO {
 	private String adname;
 	
 	private int good;
-
-	
 	
 	public String getYoutube_addr() {
 		return youtube_addr;
