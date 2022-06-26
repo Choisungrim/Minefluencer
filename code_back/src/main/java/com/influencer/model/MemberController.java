@@ -1,9 +1,9 @@
 package com.influencer.model;
 
 import java.util.List;
+
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Iterator;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -23,24 +23,7 @@ import service.MemberService;
 import service.YtubeService;
 import vo.FirstnameVO;
 import vo.MemberVO;
-/*
- * 2022 - 05 - 26
- * Last update 최성림
- * login 
- * logout
- * check(idGet, pwGet)
- * */
 import vo.YtubeVO;
-
-
-
-/**
- * 2022-06-03
- * @author ChoiSungRim
- * Client interest에 따른 Ytube Image 출력 (home.jsp)
- * Id Get, Pw Get 구현 완료 ( 새창 페이지 띄우는거 만들면 그곳으로 Json해서 전달 )
- * coding convention = 1가지 조건,반복은 띄어쓰기, 2가지 이상 조건 or 반복은 붙여쓰기 // 매개변수는 한칸씩 띄우되, @annotation 의 경우는 단락을 나눔
- * */
 
 @Controller
 public class MemberController{
@@ -51,9 +34,39 @@ public class MemberController{
 	FirstnameService Fservice;
 	@Autowired
 	YtubeService Yservice;
+
 	
 	int cnt = 0 ;
+	@RequestMapping(value = "/interest",method = RequestMethod.POST)
+	@ResponseBody
+	public ModelAndView interest (ModelAndView mv, MemberVO vo, HttpServletRequest request, 
+								  @RequestParam(value="valueArrTest[]") List<String> chbox )throws Exception {
+		
+		HttpSession session = request.getSession(false);
+		String id = (String) session.getAttribute("id");
+		String interest ="";
+		HashMap<String,String> aa =new HashMap<String,String>();
+
+		aa.put("id", id);
+		for (int i=0 ; i<chbox.size() ; i++ ) {
+			if(i!=chbox.size()-1)
+				interest +=chbox.get(i)+",";
+			else
+				interest +=chbox.get(i);
+		}
+		aa.put("interest",interest);
+		Service.update(aa);
+		mv.setViewName("/");
+		return mv;
+		
+	}
 	
+	@RequestMapping(value = "/interestCheck",method = RequestMethod.POST)
+	public ModelAndView interestCheck(ModelAndView mv) {
+		mv.setViewName("member/interestForm");
+		return mv;
+	} 
+
 	//login
 	@RequestMapping(value = "/loginf")
 	public ModelAndView loginf(ModelAndView mv) {
@@ -65,7 +78,6 @@ public class MemberController{
 	public ModelAndView login(ModelAndView mv, HttpServletRequest request, RedirectAttributes attr, MemberVO vo, YtubeVO vo1) {
 		String password = request.getParameter("pw"); // 입력한 비밀번호
 		vo = Service.selectOne(vo); // vo에 저장된 비밀번호
-		
 		int i = 1; // 전달할 namespace
 		int listNum = 0; // 불러올 listNumber
 		
@@ -90,6 +102,7 @@ public class MemberController{
 						listNum++;
 					}while (i <= 3);
 					
+					mv.setViewName("home");
 				}else {
 					session.setAttribute("interest", vo.getInterest()); 
 					mv.setViewName("home");
@@ -136,12 +149,12 @@ public class MemberController{
 	}
 	@RequestMapping(value = "/pwGet", method = RequestMethod.POST)
 	public ModelAndView pwGet(ModelAndView mv, MemberVO vo , 
-							  @RequestParam("email_get") String email,
+							  @RequestParam("id_get") String id,
 			  				  @RequestParam("birthday_get") int birth, 	
 			  				  @RequestParam("color_get") String color) {
 		
 		HashMap<String,Object>map = new HashMap<>();
-		map.put("email",email);
+		map.put("id",id);
 		map.put("birth",birth);
 		map.put("color",color);
 
@@ -153,53 +166,40 @@ public class MemberController{
 	
 	
 	// join
-	@RequestMapping(value = {"/joinf","/t"}, method = RequestMethod.GET)
+	@RequestMapping(value = "/joinf", method = RequestMethod.GET)
 	public ModelAndView joinf(ModelAndView mv,HttpServletRequest request,MemberVO vo) {
 		List<FirstnameVO> nickname = Fservice.givenick();
 		mv.addObject("apple", nickname.get(cnt).getNick_name()); // 닉네임 넣어주기
-		
 		mv.setViewName("member/join");
 		return mv;
+		
 	}
 	
-	@RequestMapping(value = "/join", method = RequestMethod.POST)
-	public ModelAndView join (ModelAndView mv, HttpServletRequest request, MemberVO vo) {
+	@RequestMapping(value = "/join" , method = RequestMethod.POST)
+	@ResponseBody
+	public ModelAndView join (ModelAndView mv, HttpServletRequest request, MemberVO vo)throws Exception {
+		HttpSession session = request.getSession();
+		vo.setEmail(vo.getEmail().replace("%40","@"));
 		List<FirstnameVO>nickname = Fservice.givenick();
 		if(Service.insert(vo)>0) {
 			Fservice.countUpdate(nickname.get(cnt).getNick_name());
-			cnt++;
-			mv.addObject("message", "회원가입 완료");
-			mv.setViewName("member/login");
+			session.setAttribute("id",vo.getId());
+			mv.addObject("result",200);
+			mv.setViewName("jsonView");
 		}else {
-			mv.addObject("message", "회원가입 오류 다시하세요");
-			mv.setViewName("member/join");
+			mv.addObject("result",201);
+			mv.setViewName("jsonView");
 		}
-		
 		return mv;
 		
 	}
 	
-	
-	
-	// 아직 미사용
-	@RequestMapping(value = "/idDupCheck", method = RequestMethod.GET)
-	public ModelAndView idDupCheck(ModelAndView mv, MemberVO vo) {
-		mv.addObject("newId",vo.getId());
-		vo = Service.selectOne(vo);
-		if(vo != null) {
-			// 사용 불가능 id 존재
-			mv.addObject("idUse","F");
-		}else {
-			// 사용 가능 id 존재
-			mv.addObject("idUse","T");
-		}
-		mv.setViewName("member/idDupCheck");
-		return mv;
-	} // idDupCheck
-	
-	
-
-	
-	
+	@RequestMapping(value="/idCheck",method=RequestMethod.POST)
+	@ResponseBody
+	public int idCheck(HttpServletRequest req,MemberVO vo) throws Exception{
+		int result = Service.idCheck(vo.getId());//중복아이디 있으면 1, 없으면 0
+		return result;
+			
+	}
 
 }

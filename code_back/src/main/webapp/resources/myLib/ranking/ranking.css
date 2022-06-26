@@ -1,0 +1,343 @@
+header {
+    width: 100%;
+    height: 9rem;
+    background-color: yellowgreen;
+}
+
+footer {
+    width: 100%;
+    height: 33rem;
+    background-color: yellowgreen;
+}
+
+/* ranking nav */
+.heading {
+    width: 130rem;
+    height: 2.9rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin: 5rem auto 3rem;
+    font-size: 2.4rem;
+    font-weight: bold;
+    color: var(--eerie-black);
+}
+
+.heading>div {
+    width: 17.6rem;
+    height: 2.6rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 6rem;
+}
+
+.heading>div>span {
+    height: inherit;
+    font-size: 2.2rem;
+    font-weight: 500;
+    color: var(--manatee);
+    cursor: pointer;
+}
+
+.heading>div>span.on {
+    font-weight: bold;
+    color: var(--han-purple);
+}
+
+/* 카테고리 선택시 분야선택 nav */
+.category_wrap {
+    width: 130rem;
+    height: 5.6rem;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    gap: 8rem;
+    margin: 4rem auto 6rem;
+    position: relative;
+}
+
+.category_wrap>ul>li>.arrow_left {
+    position: absolute;
+    top: 20%;
+    left: 11%;
+    transform: rotate(180deg);
+}
+
+.category_wrap>ul>li>.arrow_right {
+    position: absolute;
+    top: 18%;
+    right: 11%;
+}
+
+.category_scroll>ul {
+    width: 78.5rem;
+    height: 5.6rem;
+    display: flex;
+    align-items: flex-start;
+    gap: 2rem;
+}
+
+.category_scroll>ul>.btn20px {
+    width: 9.5rem;
+    height: 5.6rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    padding: 1.6rem 3rem;
+    border-radius: 1rem;
+    cursor: pointer;
+}
+
+.category_scroll>ul>.btn20px span {
+    font-size: 2rem;
+    font-weight: 500;
+    color: var(--manatee);
+}
+
+.category_scroll>ul>.btn20px:hover span {
+    font-weight: bold;
+    color: var(--han-purple);
+}
+
+.category_scroll>ul>.btn20px.on {
+    background-color: var(--lavender-web);
+}
+
+.category_scroll>ul>.btn20px.on span {
+    font-weight: bold;
+    color: var(--han-purple);
+}
+
+/* ranking Top3 공통*/
+#top3 {
+    width: 94rem;
+    height: 36.7rem;
+    display: flex;
+    align-items: baseline;
+    gap: 11rem;
+    margin: 3rem auto 0;
+}
+
+#top3 .details {
+    width: 24rem;
+    height: 8.7rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: .8rem;
+}
+
+.details>span:nth-of-type(1) {
+    width: inherit;
+    font-size: 2rem;
+    font-weight: bold;
+    color: var(--eerie-black);
+    text-align: center;
+}
+
+.rank_header {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.rank_header>img {
+    z-index: 10;
+}
+
+.rank_header>.rank_num {
+    width: 5rem;
+    height: 5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    bottom: -2.5rem;
+    z-index: 20;
+    border-radius: 50%;
+    background-color: var(--lavender-web);
+    font-size: 2rem;
+    font-weight: 800;
+    color: var(--han-purple);
+}
+
+.rank_header>.first {
+    background-color: var(--han-purple);
+    color: var(--white);
+}
+
+/* 찜 개수 */
+.mine_num {
+    width: 5.2rem;
+    height: 2.2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: .6rem;
+}
+.mine_num>img {
+    width: 2.2rem;
+    height: 2.2rem;
+}
+.mine_num>span {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: var(--rusty-red);
+}
+
+.ranking_other .mine_num {
+    justify-content: flex-start;
+}
+
+/* hashtag */
+.hashtag {
+    display: flex;
+    gap: .6rem;
+}
+
+.hashtag>span {
+    height: 2.5rem;
+    padding: .4rem .6rem;
+    border-radius: .4rem;
+    background-color: var(--lavender-web);
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: var(--han-purple);
+    cursor: pointer;
+}
+
+/* TOP1 */
+.rank_main {
+    width: 24rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4rem;
+}
+
+#rank_1>.rank_header>img {
+    width: 24rem;
+    height: 24rem;
+    border-radius: 50%;
+    border: solid .5rem var(--han-purple);
+    box-shadow: 0 .5rem 2rem 0 rgba(28, 29, 33, 0.04), 0 .5rem 8rem 0 rgba(51, 51, 255, 0.15);
+}
+
+/* TOP2 ~ 3 */
+.rank_side {
+    width: 24rem;
+    height: 28.7rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4rem;
+}
+
+.rank_side>.rank_header>img {
+    width: 16rem;
+    height: 16rem;
+    border-radius: 50%;
+    border: solid .3rem var(--lavender-web);
+    box-shadow: 0 .5rem 2rem 0 rgba(28, 29, 33, 0.04);
+}
+
+/* TOP4 ~ */
+.list_wrap {
+    width: 130rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 2.5rem;
+    margin: 8rem auto;
+}
+
+.list_item {
+    display: flex;
+    align-items: center;
+    gap: 4rem;
+}
+
+.list_item>span {
+    width: 6rem;
+    font-size: 2.2rem;
+    font-weight: 500;
+    color: var(--manatee);
+}
+
+/* list_item 인플루언서 카드 */
+.list_item>div {
+    width: 120rem;
+    height: 17rem;
+    position: relative;
+    padding: 2.5rem 3rem;
+    border-radius: 1rem;
+    box-shadow: 0 .5rem 2rem 0 rgba(28, 29, 33, 0.04);
+    background-color: var(--white);
+}
+
+/* 인플루언서 프로필 */
+.influencer_profile {
+    height: 12rem;
+    display: flex;
+    align-items: center;
+    gap: 4rem;
+}
+
+.influencer_profile>.details {
+    height: 9.8rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 1.5rem;
+}
+
+.influencer_profile>.details>.desc {
+    display: inherit;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.influencer_profile>.details>.desc>span:nth-of-type(1) {
+    font-size: 2rem;
+    font-weight: bold;
+    color: var(--eerie-black);
+}
+
+.influencer_profile>img {
+    width: 12rem;
+    height: 12rem;
+    border-radius: 50%;
+}
+
+/* 찜하기 버튼 */
+.mine {
+    width: 4rem;
+    height: 4rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    position: absolute;
+    right: 2.5%;
+    top: 17.6%;
+    padding: .4rem;
+}
+
+/* 더보기 버튼 */
+.list_item>div>.more>span>a {
+    position: absolute;
+    right: 2.7%;
+    bottom: 17.6%;
+    font-size: 1.4rem;
+    font-weight: normal;
+    color: var(--han-purple);
+}
+
+.more>span>a:hover {
+    text-decoration: underline;
+}

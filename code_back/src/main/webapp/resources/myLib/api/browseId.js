@@ -6,7 +6,7 @@
 // => 주소만 적어주면 바로 유튜버가 추가된다 (코드만 작성하면 됨)
 
 let browseKey = [
-	'UCo-7Wia3f5PMfPrBehOfSDA',
+	'UC0UQsiC-O84QCBaGrwm9C3w',
 ];
 
 export { browseKey };

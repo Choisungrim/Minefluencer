@@ -1,0 +1,120 @@
+@charset "UTF-8";
+
+#hamMenu {
+    position: absolute;
+    z-index: 1000;
+    right: 31rem;
+    top: 7.7rem;
+    border-radius: 1rem;
+    width: 26rem;
+    height: 38.8rem;
+    background-color: #FFF;
+	margin-left: 5rem;
+    transition: all 0.3s ease;
+    opacity: 0;
+	visibility: hidden;
+	overflow: hidden;
+}
+
+#hamTop {
+	display:flex;
+	justify-content: center;
+    align-items: center;
+	
+	width: 26rem;
+	height: 12.3rem;
+	margin-bottom: 2rem;
+	border-bottom: solid 1px var(--light-gray);
+	
+}
+#hamInfo {
+	width: 14.4rem;
+	height: 7.5rem;
+	margin: 2.4rem 8.6rem 2.4rem 3rem;
+}
+
+#hamInfo > span {
+	font-size: 1.8rem;
+	font-weight: bold;
+}
+
+#hamInfo > #join {
+	padding: 1.2rem 1.5rem;
+	background-color: var(--han-purple);
+	border-radius: 1rem;
+}
+
+#hamBottom {
+	width: 26rem;
+	height: 26.5rem;
+	
+}
+#hamBottom>ul {
+    overflow: hidden;
+}
+
+#hamBottom>ul>li {
+    float: left;
+    width: 26rem;
+    height: 4.7rem;
+    letter-spacing: normal; 
+    font: 400 1.6rem/2.4rem 'Noto Sans KR', sans-serif;
+    padding: 14px 30px;
+}
+
+#hamMenu.open {
+    /* top: 7.7rem; */
+    opacity: 1;
+    visibility: visible;
+	overflow: visible;
+    transition: all 0.3s ease;
+}
+
+/*hamburger 메뉴 아이콘*/
+.hamIcon,
+.hamIcon span {
+	display : inline-block;
+	transition : all .4s;
+	box-sizing : border-box;
+}
+.hamIcon {
+	margin-left:5rem;
+	position : relative;
+	width : 3.2rem;
+	height : 3.2rem;
+}
+.hamIcon span {
+	position : absolute;
+	left : 0;
+	width : 2rem;
+	height : .2rem;
+	background-color : black;
+	border-radius : .2rem;
+}
+.hamIcon span:nth-of-type(1) {
+	top : 0.7rem;
+}
+.hamIcon span:nth-of-type(2) {
+	top : calc(50% - 0.1rem);
+}
+.hamIcon span:nth-of-type(3) {
+	bottom : 0.7rem;;
+}
+.hamIcon.active-1 {
+  -webkit-transform: rotate(360deg);
+  transform: rotate(360deg);
+}
+
+.hamIcon.active-1 span:nth-of-type(1) {
+  -webkit-transform: translateY(7.5px) rotate(-45deg);
+  transform: translateY(7.5px) rotate(-45deg);
+}
+
+.hamIcon.active-1 span:nth-of-type(2) {
+  -webkit-transform: translateY(0) rotate(45deg);
+  transform: translateY(0) rotate(45deg);
+}
+
+.hamIcon.active-1 span:nth-of-type(3) {
+  opacity: 0;
+}

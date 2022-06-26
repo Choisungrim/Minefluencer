@@ -28,4 +28,9 @@ public class YtubeServiceimpl implements YtubeService{
 	public List<YtubeVO> imgOne(String string) {
 		return mapper.imgOne(string);
 	}
+	
+	@Override
+	public List<YtubeVO> category(String interest) {
+		return mapper.category(interest);
+	}
 }

@@ -11,7 +11,6 @@ public class YtubeVO {
 	private String default_addr;
 	private String job;
 	private String adname;
-	
 	private int good;
 	
 	public String getYoutube_addr() {

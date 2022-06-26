@@ -15,14 +15,21 @@ public class MemberServiceImpl implements MemberService{
 	@Autowired
 	MemberMapper mapper;
 	
+	public int update(HashMap<String,String> aa) {
+		return mapper.update(aa);
+	}
+	
+	@Override
+	public int idCheck(String id) {	
+		return mapper.idCheck(id);
+	}
+	
 	@Override
 	public List<MemberVO> imgOne(String string) {
-		// TODO Auto-generated method stub
 		return mapper.imgOne(string);
 	}
 	@Override
 	public MemberVO selectOne(MemberVO vo) {
-		// TODO Auto-generated method stub
 		return mapper.selectOne(vo);
 	}
 	@Override

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  <mapper namespace="mapperInterface.MylistMapper">
+  	<select id="selectList" resultType="vo.YtubeVO">
+  	select row_number()over(order by (select regdate from mylist) desc) seq,
+	a.name name, a.subscribe, a.introduce, b.job, a.image,
+	b.youtube_addr, b.insta_addr, b.default_addr, a.good
+	from ytube a join address b
+	on a.name= b.name
+	where a.name = (select name from mylist where id =#{id});
+  	</select>
+  
+  </mapper>
